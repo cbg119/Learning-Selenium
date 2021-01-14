@@ -1,3 +1,0 @@
-Unfortunately Sauce Labs' training for Python isn't complete.
-
-These projects will be based off of their JavaScript course.
