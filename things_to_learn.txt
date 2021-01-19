@@ -1,0 +1,80 @@
+### THEORY ###
+
+1. POM (Page Object Model) - What is it, how to implement, it vs other test patterns
+
+https://blog.testproject.io/2020/06/29/design-patterns-in-test-automation/
+> POM is probably one of the most popular test automation design patterns. At its core, POM
+is used to abstract your testing tool (Selenium, etc.) and application you are testing. With POM
+you represent your "pages" and their actions with code/classes. Ideally, using POM, your actualy test scripts
+should never have to use Selenium itself - everything should be abstracted away. Your tests should read similar to plain English.
+
+2. Different types of testing - Unit, Integration, UI, Regression, E2E, Black/White box, headless
+3. Different tools for testing - Selenium, Webdriverio, Cypress, Puppeteer, etc. Why they were created,
+what makes them unique, etc.
+
+#### CORE TECHNICAL ####
+
+1. Selenium, preferably through JavaScript to preface for Webdriverio
+2. Mocha, or another JS testing framework.
+3. Using Sauce REST api to view/edit job info.
+4. Using Sauce in different data centers
+5. How to parse info from Sauce test logs
+6. Parallel tests - how to implement
+6. Pre-run scripts - what they are, how to use them, common use case
+7. Custom Chrome options - what they are, how to use them, common use case
+8. Breakpooints - what they are, how to implement, common use cases
+9. Tests using stored assets in Sauce Storage
+10. Set up Jenkins pipeline to use Sauce
+11. HAR Files - what they are, how to get them, how to read them, and how to troubleshoot from them.
+12. Run a few headless tests, learn/note any differences or quirks
+
+
+#### SAUCE WEB PORTAL, ACCOUNT MANAGEMENT, PRICING ####
+
+1. Customer account types/tiers
+2. Account hiearchy (Master account, sub-accounts, sub-sub-accounts, etc.)
+3. Concurrency levels (parallel tests)
+4. Sauce from a privileged user perspective
+5. Sauce from an admin perspective
+6. Recurly - general areas, how to navigate/parse info, common use cases
+
+#### APPIUM - MOBILE TESTING ####
+
+0. Run manual tests
+1. Running a local iOS and Android simulator
+2. Appium, preferably through JavaScript. How to run tests, similarities to Selenium, etc.
+3. Formatting/requirements for apps to run on Sauce platform
+4. Remote mobile testing, both web and native
+5. Real Device Cloud (RDC) - what it is, limitations, quirks, etc.
+6. RDC - Learn how to manual test
+7. RDC - How to auto test
+8. RDC - Uploading an APK to Sauce
+9. RDC - Device monitoring
+10. RDC - Device management
+
+#### SAUCE CONNECT ####
+
+0. Sauce Connect cli reference - https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+Command-Line+Quick+Reference+Guide
+1. Sauce connect - what is it, use cases
+2. How to install, start, and stop the client
+3. How to change options - what options are there, how to change, why to change
+4. Run test through SC - probably deploy app on Raspberry Pi, write a few selenium tests, then use SauceConnect to test
+5. Run test through SC shared tunnel
+6. How to tell if tests were ran through Sauce Connect
+7. What is doctor mode 
+8. What the -B flag means for SC 
+9. What is Selenium relay - what is it, how to use it, when to use it 
+10. Verbose and very verbose mode on SC - what are they, how to use them, when to use them 
+11. Use SC in debug mode 
+12. Set up Jenkins pipeline to run through SC
+13. Run SC in HA
+14. Create and troubleshoot failure cases in SC - wrong parameters, selenium commands, test framework, credentials, caps, etc. 
+
+#### TICKETS - Workflow, Logging platforms, external tools ####
+
+1. Ticket workflow, from first touch to closing - https://wiki.saucelabs.com/display/SUPPORT/Ticket+Workflows+and+Policies?src=contextnavpagetreemode.
+How to use Zendesk, JIRA, Saleforce. What are they, how to use, what to use for
+
+2. Support standards. KPI's, Resolution times, customer-facing verbiage, escalations, etc.
+3. Looker - what is it, how to use, when to use
+4. Sumologic - what is it, how to use, when to use
