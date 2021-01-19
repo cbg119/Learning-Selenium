@@ -26,7 +26,7 @@ describe("Test Login Functionality", function() {
         await submit_button.click()
 
         let success_banner = driver.findElement(By.css(".flash.success"))
-        assert(!success_banner.isDisplayed(), "Banner not found")
+        assert(success_banner.isDisplayed(), "Banner not found")
 
     })
 })
