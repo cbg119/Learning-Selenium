@@ -1,0 +1,23 @@
+{
+  "name": "learning-selenium",
+  "version": "1.0.0",
+  "description": "This repository will be used to hold my work while learning different flavors of Selenium (specifically Python and JavaScript)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbg119/Learning-Selenium.git"
+  },
+  "author": "Christian Bagdon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbg119/Learning-Selenium/issues"
+  },
+  "homepage": "https://github.com/cbg119/Learning-Selenium#readme",
+  "dependencies": {
+    "@wdio/cli": "^6.12.1",
+    "selenium-webdriver": "^4.0.0-alpha.8"
+  }
+}
