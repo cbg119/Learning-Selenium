@@ -15,14 +15,18 @@ exports.config = {
     // should work too though). These services define specific user and key (or access key)
     // values you need to put in here in order to connect to these services.
     //
-    user: process.env.SAUCE_USERNAME,
-    key: process.env.SAUCE_ACCESS_KEY,
+    
+    //user: process.env.SAUCE_USERNAME,
+    //key: process.env.SAUCE_ACCESS_KEY,
+    
     //
     // If you run your tests on Sauce Labs you can specify the region you want to run your tests
     // in via the `region` property. Available short handles for regions are `us` (default) and `eu`.
     // These regions are used for the Sauce Labs VM cloud and the Sauce Labs Real Device Cloud.
     // If you don't provide the region it will default for the `us`
-    region: 'us',
+    
+    //region: 'us',
+    
     //
     // ==================
     // Specify Test Files
@@ -35,6 +39,13 @@ exports.config = {
     specs: [
         './Desktop/**'
     ],
+
+    suites: {
+        login: [
+            "./Desktop/basic_login_test.spec.js",
+            "./Desktop/basic_login_test_fail.spec.js"
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -65,17 +76,20 @@ exports.config = {
         {
             browserName: 'chrome',
             browserVersion: "latest",
-            platformName: "Windows 10"
+            //platformName: "Windows 10"
+
             // If outputDir is provided WebdriverIO can capture driver session logs
             // it is possible to configure which logTypes to include/exclude.
             // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
             // excludeDriverLogs: ['bugreport', 'server'],
         },
+        /*
         {
             browserName: "safari",
             browserVersion: "latest",
             platformName: "macOS 10.15"
         }
+        */
 ],
     //
     // ===================
@@ -124,7 +138,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['sauce'],
+    //services: ['chromedriver'],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -201,6 +215,13 @@ exports.config = {
      */
     // before: function (capabilities, specs) {
     // },
+
+    before: function() {
+        browser.addCommand("set_sauce_title", function(job_name) {
+            this.execute("sauce:job-name=" + job_name)
+        })
+    }
+
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
