@@ -8,26 +8,6 @@ exports.config = {
     // on a remote machine).
     runner: 'local',
     //
-    // =================
-    // Service Providers
-    // =================
-    // WebdriverIO supports Sauce Labs, Browserstack, Testing Bot and LambdaTest (other cloud providers
-    // should work too though). These services define specific user and key (or access key)
-    // values you need to put in here in order to connect to these services.
-    //
-    
-    //user: process.env.SAUCE_USERNAME,
-    //key: process.env.SAUCE_ACCESS_KEY,
-    
-    //
-    // If you run your tests on Sauce Labs you can specify the region you want to run your tests
-    // in via the `region` property. Available short handles for regions are `us` (default) and `eu`.
-    // These regions are used for the Sauce Labs VM cloud and the Sauce Labs Real Device Cloud.
-    // If you don't provide the region it will default for the `us`
-    
-    //region: 'us',
-    
-    //
     // ==================
     // Specify Test Files
     // ==================
@@ -37,15 +17,8 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './Desktop/**'
+        './Mobile/android/*'
     ],
-
-    suites: {
-        login: [
-            "./Desktop/basic_login_test.spec.js",
-            "./Desktop/basic_login_test_fail.spec.js"
-        ]
-    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -72,25 +45,20 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [
-        {
-            browserName: 'chrome',
-            browserVersion: "latest",
-            //platformName: "Windows 10"
-
-            // If outputDir is provided WebdriverIO can capture driver session logs
-            // it is possible to configure which logTypes to include/exclude.
-            // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-            // excludeDriverLogs: ['bugreport', 'server'],
-        },
-        /*
-        {
-            browserName: "safari",
-            browserVersion: "latest",
-            platformName: "macOS 10.15"
-        }
-        */
-],
+    capabilities: [{
+    
+        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+        // grid with only 5 firefox instances available you can make sure that not more than
+        // 5 instances get started at a time.
+        maxInstances: 5,
+        //
+        browserName: 'chrome',
+        acceptInsecureCerts: true
+        // If outputDir is provided WebdriverIO can capture driver session logs
+        // it is possible to configure which logTypes to include/exclude.
+        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
+        // excludeDriverLogs: ['bugreport', 'server'],
+    }],
     //
     // ===================
     // Test Configurations
@@ -98,7 +66,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'error',
+    logLevel: 'info',
     //
     // Set specific log levels per logger
     // loggers:
@@ -122,7 +90,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://the-internet.herokuapp.com',
+    baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -138,8 +106,8 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    //services: ['chromedriver'],
-    
+    // services: [],
+    //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks.html
@@ -215,13 +183,6 @@ exports.config = {
      */
     // before: function (capabilities, specs) {
     // },
-
-    before: function() {
-        browser.addCommand("set_sauce_title", function(job_name) {
-            this.execute("sauce:job-name=" + job_name)
-        })
-    }
-
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

@@ -18,6 +18,13 @@
   "homepage": "https://github.com/cbg119/Learning-Selenium#readme",
   "dependencies": {
     "@wdio/cli": "^6.12.1",
+    "mocha": "^8.2.1",
     "selenium-webdriver": "^4.0.0-alpha.8"
+  },
+  "devDependencies": {
+    "@wdio/local-runner": "^6.12.1",
+    "@wdio/mocha-framework": "^6.11.0",
+    "@wdio/spec-reporter": "^6.11.0",
+    "@wdio/sync": "^6.11.0"
   }
 }
