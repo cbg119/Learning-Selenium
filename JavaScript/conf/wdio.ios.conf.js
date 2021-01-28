@@ -8,6 +8,9 @@ exports.config = {
     // on a remote machine).
     runner: 'local',
 
+    //user: process.env.SAUCE_USERNAME,
+    //key: process.env.SAUCE_ACCESS_KEY,
+
     port: 4723,
     path: "/wd/hub/",
 
@@ -61,21 +64,19 @@ exports.config = {
         // excludeDriverLogs: ['bugreport', 'server'],
 
         //ANDROID OR IOS
-        platformName: "Android",
+        platformName: "iOS",
 
         //VERSION OF ANDROID OR IOS
-        platformVersion: "11",
+        platformVersion: "14.2",
 
         //SPECIFIC DEVICE i.e. iPhone8, Android Emulator, etc.
         //deviceName: "sdk_gphone_arm64",
-        deviceName:"Android Emulator",
+        deviceName:"iPhone 12",
 
         //PATH TO BINARY. Can be local or remote. IOS needs to be .app and be zipped.
-        app: "/Users/christianbagdon/Downloads/android_sauce_labs.apk",
-        appPackage: "com.swaglabsmobileapp",
-        appActivity: "com.swaglabsmobileapp.MainActivity",
+        app: "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.1.zip",
         //which driver to use
-        automationName: "UiAutomator2"
+        automationName: "XCUITest",
     }],
     //
     // ===================
@@ -124,7 +125,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: [],
+    //services: ["sauce"],
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
