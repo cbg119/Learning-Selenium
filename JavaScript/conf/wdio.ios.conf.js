@@ -24,7 +24,6 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './Mobile/android/*.js',
         "./Mobile/ios/*.js"
     ],
     // Patterns to exclude.
@@ -74,7 +73,7 @@ exports.config = {
         deviceName:"iPhone 12",
 
         //PATH TO BINARY. Can be local or remote. IOS needs to be .app and be zipped.
-        app: "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.1.zip",
+        app: "https://github.com/cloudgrey-io/the-app/releases/download/v1.10.0/TheApp-v1.10.0.app.zip",
         //which driver to use
         automationName: "XCUITest",
     }],

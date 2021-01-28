@@ -8,8 +8,11 @@ exports.config = {
     // on a remote machine).
     runner: 'local',
 
-    port: 4723,
-    path: "/wd/hub/",
+    user: process.env.SAUCE_USERNAME,
+    key: process.env.SAUCE_ACCESS_KEY,
+
+    //port: 4723,
+    //path: "/wd/hub/",
 
     //
     // ==================
@@ -22,7 +25,6 @@ exports.config = {
     //
     specs: [
         './Mobile/android/*.js',
-        "./Mobile/ios/*.js"
     ],
     // Patterns to exclude.
     exclude: [
@@ -64,16 +66,18 @@ exports.config = {
         platformName: "Android",
 
         //VERSION OF ANDROID OR IOS
-        platformVersion: "11",
+        platformVersion: "11.0",
+
+        browserName: "",
 
         //SPECIFIC DEVICE i.e. iPhone8, Android Emulator, etc.
         //deviceName: "sdk_gphone_arm64",
-        deviceName:"Android Emulator",
+        deviceName:"Android GoogleAPI Emulator",
 
         //PATH TO BINARY. Can be local or remote. IOS needs to be .app and be zipped.
-        app: "/Users/christianbagdon/Downloads/android_sauce_labs.apk",
-        appPackage: "com.swaglabsmobileapp",
-        appActivity: "com.swaglabsmobileapp.MainActivity",
+        app: "https://github.com/cloudgrey-io/the-app/releases/download/v1.9.0/TheApp-v1.9.0.apk",
+        //appPackage: "com.swaglabsmobileapp",
+        //appActivity: "com.swaglabsmobileapp.MainActivity",
         //which driver to use
         automationName: "UiAutomator2"
     }],
